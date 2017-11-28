@@ -1,4 +1,4 @@
-#usr/bin/bash
+#usr/bin/env bash
 
 # Installing my beloved ZSH and its sidekick 
 DISTRO=`uname -r | cut -d '-' -f 3`
