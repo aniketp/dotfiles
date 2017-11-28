@@ -5,6 +5,7 @@ trap 'exit' ERR
 DISTRO=`uname -r | cut -d '-' -f 3`
 
 # Place all required rc_files here
+declare -A rc_list
 rc_list=(".vimrc" ".bashrc" ".zshrc");
 
 # Check the kernel version and install ZSH accordingly
