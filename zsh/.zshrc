@@ -84,16 +84,4 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-screenfetch
-
-if [ -x /usr/games/cowsay -a -x /usr/games/fortune ]; then
-	fortune | cowsay
-fi
-
-#if [ -x /usr/games/cowsay -a -x /usr/games/fortune ]; then
-#    fortune -a | fmt -80 -s | $(shuf -n 1 -e cowsay cowthink) -$(shuf -n 1 -e b d g p s t w y) -f $(shuf -n 1 -e $(cowsay -l | tail -n +2)) -n		
-#fi
-
-alias ks='ls'
-
-#. /home/aniketp/cpm/cow_selector
+# TODO: Add ./.zsh-startup here

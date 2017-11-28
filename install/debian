@@ -1,6 +1,8 @@
 #!/usr/bin/bash
 
 # Installing my beloved ZSH and its sidekick 
+DISTRO = `uname -r`
+
 sudo apt-get zsh -y
 
 # Check if which zsh is in /etc/shells
@@ -22,5 +24,4 @@ done
 if [ $flag -eq 0 ]; then
     echo "Sorry, ZSH not found in /etc/shell :("
 fi
-
-#                            
+                            
