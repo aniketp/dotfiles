@@ -1,9 +1,13 @@
-#!/usr/bin/bash
+#usr/bin/bash
 
 # Installing my beloved ZSH and its sidekick 
-DISTRO = `uname -r`
+DISTRO=`uname -r | cut -d '-' -f 3`
 
-sudo apt-get zsh -y
+if [ "$DISTRO" == 'ARCH' ]; then
+    sudo pacman -S zsh zsh-completions --noconfirm
+else
+    sudo apt-get -y install zsh
+fi
 
 # Check if which zsh is in /etc/shells
 flag=0
@@ -13,7 +17,7 @@ do
     if [ "$shell" == $(which zsh) ]; then
         # Some Acknowledgements :P
         echo 'Congrats!! ZSH found in /etc/shells'; sleep 3
-
+        
         # Change the default shell
         chsh -s $(which zsh)
         flag=1
@@ -24,4 +28,3 @@ done
 if [ $flag -eq 0 ]; then
     echo "Sorry, ZSH not found in /etc/shell :("
 fi
-                            
