@@ -1,0 +1,19 @@
+#!/bin/zsh
+
+a1=$(($RANDOM%10))
+a2=$(($RANDOM%10))
+
+# Passing randomly generated numbers to Screenfetch for a sylish entry !
+screenfetch -c "$a1,$a2"
+
+# Who doesn't love cows... sweet, smart cows !!
+if [ -x /usr/games/cowsay -a -x /usr/games/fortune ]; then
+    fortune | cowsay
+fi
+
+# In case I'm bored with just cows, many more animals available...
+
+#if [ -x /usr/games/cowsay -a -x /usr/games/fortune ]; then
+#    fortune -a | fmt -80 -s | $(shuf -n 1 -e cowsay cowthink) -$(shuf -n 1 -e b d g p s t w y) -f $(shuf -n 1 -e $(cowsay -l | tail -n +2)) -n     
+#fi
+
