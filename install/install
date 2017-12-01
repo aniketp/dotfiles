@@ -5,7 +5,6 @@ trap 'exit' ERR
 DISTRO=`uname -r | cut -d '-' -f 3`
 
 # Place all required rc_files here
-declare -A rc_list
 rc_list=(".vimrc" ".bashrc" ".zshrc");
 
 # Check the kernel version and install ZSH accordingly
@@ -36,6 +35,9 @@ if [ $flag -eq 0 ]; then
     exit 1
 
 else
+    # Installing Oh-My-Zsh
+    sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+
     echo 'Installing RC files...'
     for rc_file in "${rc_list[@]}"; do
         if [[ -f $rc_file || -L $rc_file ]]; then
@@ -43,9 +45,9 @@ else
             mv "$HOME/$rc_file" "$HOME/$rc_file".backup
         fi
 
-        cp "$HOME/dotfiles/$rc_file" "$HOME/$rc_file"
+        sudo cp "$HOME/dotfiles/$rc_file" "$HOME/$rc_file"
     done
 
-    source "$HOME"/.zshrc
+#    source "$HOME"/.zshrc
     echo "Setup successful !!"
 fi
