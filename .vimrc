@@ -1,14 +1,11 @@
-:syntax on
-" set tabstop=4
-" set shiftwidth=4
+if has("syntax")
+  syntax on
+endif
 
 filetype plugin indent on
-" show existing tab with 4 spaces width
-set tabstop=4
-" when indenting with '>', use 4 spaces width
-set shiftwidth=4
-" On pressing tab, insert 4 spaces
-set expandtab
 
-" Show numbers
-set number
+set tabstop=4				" show existing tab with 4 spaces width
+set shiftwidth=4			" when indenting with '>', use 4 spaces width
+set expandtab				" On pressing tab, insert 4 spaces
+set number				" Show numbers
+set background=dark			" Cool Background         
