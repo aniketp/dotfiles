@@ -1,0 +1,9 @@
+# ZSH Aliases
+
+alias install='sudo apt-get install -y'
+alias update='sudo apt-get update'
+alias weather="curl -4 'http://wttr.in/Kanpur?m'"
+alias weather-delhi="curl -4 'http://wttr.in/Delhi?m'"
+
+alias la='ls -la'
+alias sublime='subl'
