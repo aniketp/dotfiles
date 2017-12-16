@@ -1,9 +1,22 @@
 # ZSH Aliases
 
+# shorthands
+alias sb='subl'
+alias sf='screenfetch'
+
+# git stuff
+alias add='git add --all'
+alias commit='git commit -m'
+alias push='git push origin master'
+alias pull='git pull origin master'
+alias amend='git commit --amend'
+alias seturl='git remote set-url origin'
+
+# clumsy apt-get
 alias install='sudo apt-get install -y'
 alias update='sudo apt-get update'
+alias upgrade='sudo apt-get upgrade'
+
+# weather stuff
 alias weather="curl -4 'http://wttr.in/Kanpur?m'"
 alias weather-delhi="curl -4 'http://wttr.in/Delhi?m'"
-
-alias la='ls -la'
-alias sublime='subl'
