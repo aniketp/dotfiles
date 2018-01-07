@@ -3,6 +3,11 @@
 # shorthands
 alias sb='subl'
 alias sf='screenfetch'
+alias ifc='ifconfig'
+
+# daily-use commands
+alias rm='rm -rf'
+alias c='cd ~/Desktop'
 
 # git stuff
 alias add='git add --all'
