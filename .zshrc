@@ -82,5 +82,8 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 #
 
 # Load zsh_profile and zsh_aliases
-[ -f ~/.zsh_profile ] && source ~/.zsh_profile
+# [ -f ~/.zsh_profile ] && source ~/.zsh_profile
 [ -f ~/.zsh_aliases ] && source ~/.zsh_aliases
+
+# Add luarocks packages to PATH
+eval $(luarocks path --bin)
