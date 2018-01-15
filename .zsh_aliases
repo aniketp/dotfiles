@@ -5,6 +5,9 @@ alias sb='subl'
 alias sf='screenfetch'
 alias ifc='ifconfig'
 
+# Program Interpreters
+alias python='python3'
+
 # daily-use commands
 alias rm='rm -rf'
 alias c='cd ~/Desktop'
