@@ -212,7 +212,7 @@ prompt_status() {
   local symbols
   symbols=()
   [[ $RETVAL -ne 0 ]] && symbols+="%{%F{red}%}✘"
-  # [[ $UID -eq 0 ]] && symbols+="%{%F{yellow}%}⚡"
+  [[ $UID -eq 0 ]] && symbols+="%{%F{yellow}%}⚡"
   [[ $(jobs -l | wc -l) -gt 0 ]] && symbols+="%{%F{cyan}%}⚙"
 
   [[ -n "$symbols" ]] && prompt_segment black default "$symbols"
@@ -234,14 +234,14 @@ build_prompt() {
   prompt_status
   prompt_virtualenv
   prompt_context
-  prompt_dir
   prompt_git
+  prompt_dir
   prompt_bzr
   prompt_hg
   prompt_end
 }
 
-PROMPT='%{%f%b%k%}$(build_prompt)
+PROMPT='%{%f%k%b%}$(build_prompt)
 ▶ '
 
 RPROMPT='$(check_exit_code)'%F{red}$RSEGMENT_SEPARATOR'$(prompt_right)'
