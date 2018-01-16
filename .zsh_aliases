@@ -11,10 +11,12 @@ alias python='python3'
 # daily-use commands
 alias rm='rm -rf'
 alias c='cd ~/Desktop'
+alias l='exa -iBghlSu --git --all'
+alias lt='exa -hl -T'
 
 # git stuff
-alias add='git add --all'
-alias commit='git commit -m'
+# alias add='git add --all'
+alias commit='git add --all; git commit -m'
 alias push='git push origin master'
 alias pull='git pull origin master'
 alias amend='git commit --amend'
