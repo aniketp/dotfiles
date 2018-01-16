@@ -12,6 +12,9 @@ Collection of all the configuration files made to ease and speed up the signific
 
 ---
 
+On any normal day - <br>
+![Shell-Demo](images/image.png)
+
 ## Requirements
 * vim
 * zsh
