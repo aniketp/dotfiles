@@ -76,7 +76,7 @@ prompt_end() {
 }
 
 prompt_right() {
-  prompt_segment red
+  prompt_segment red 
   echo -n "%F{black}%* "
 }
 
@@ -211,7 +211,8 @@ prompt_virtualenv() {
 prompt_status() {
   local symbols
   symbols=()
-  [[ $RETVAL -ne 0 ]] && symbols+="%{%F{red}%}✘"
+  [[ $RETVAL -ne 0 ]] && symbols+="%{%F{yellow}%}☹"
+  [[ $RETVAL -eq 0 ]] && symbols+="%{%F{yellow}%}😃"
   [[ $UID -eq 0 ]] && symbols+="%{%F{yellow}%}⚡"
   [[ $(jobs -l | wc -l) -gt 0 ]] && symbols+="%{%F{cyan}%}⚙"
 

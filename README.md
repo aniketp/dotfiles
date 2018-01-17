@@ -26,6 +26,5 @@ On any normal day - <br>
  cd dotfiles/install
  ./install
 ```
-## Acknowedgement
-The original construct and idea of creating config files in this fashion belongs to my mentor [**Shivansh Rai**](https://github.com/shivansh). I believe I'll have to copy most of his [code](https://github.com/shivansh/dotfiles) during the initial stage of preparing my own personalized configs.
-  
+## Acknowledgement
+The original construct and idea of creating config files in this fashion belongs to my mentor [**Shivansh Rai**](https://github.com/shivansh). I believe I'll have to copy most of his [code](https://github.com/shivansh/dotfiles) during the initial stage of preparing my own configs.
