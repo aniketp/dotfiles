@@ -2,12 +2,15 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/home/aniket/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
+
+# Load the powerlevel9k configuration file
+source $HOME/.powerlevel9k-setup
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="agnoster"
+ZSH_THEME="powerlevel9k/powerlevel9k"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -51,7 +54,7 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git sudo)
+plugins=(git sudo colored-man-pages zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -86,4 +89,4 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 [ -f ~/.zsh_aliases ] && source ~/.zsh_aliases
 
 # Add luarocks packages to PATH
-eval $(luarocks path --bin)
+# eval $(luarocks path --bin)
