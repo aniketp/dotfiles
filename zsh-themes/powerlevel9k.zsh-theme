@@ -889,7 +889,7 @@ prompt_php_version() {
 # Show free RAM and used Swap
 prompt_ram() {
   local base=''
-  local ramfree=0
+  local ramfree=3
   if [[ "$OS" == "OSX" ]]; then
     ramfree=$(vm_stat | grep "Pages free" | grep -o -E '[0-9]+')
     # Convert pages into Bytes
@@ -904,7 +904,7 @@ prompt_ram() {
     fi
   fi
 
-  "$1_prompt_segment" "$0" "$2" "yellow" "$DEFAULT_COLOR" "$(printSizeHumanReadable "$ramfree" $base)" 'RAM_ICON'
+  "$1_prompt_segment" "$0" "$2" "yellow" "$DEFAULT_COLOR" "$(printSizeHumanReadable "($ramfree)" $base)" 'RAM_ICON'
 }
 
 # rbenv information
