@@ -6,11 +6,13 @@
 
 trap 'exit' ERR
 
-DISTRO=`uname -r | cut -d '-' -f 3`
+DISTRO=$(uname -r | cut -d '-' -f 3)
+PWR="powerlevel9k"
+PWRLVL9k="$ZSH/custom/themes/$PWR"
 
 # Place all required rc_files here
 rc_list=( ".vimrc" ".bashrc" ".zshrc" ".zsh_aliases"
-         ".zsh_profile" ".gitconfig" );
+         ".zsh_profile" ".gitconfig" ".gdbinit" ".powerlevel9k-setup" );
 
 # Check the kernel version and install ZSH accordingly
 if [ "$DISTRO" == 'ARCH' ]; then
@@ -44,12 +46,29 @@ if [ $flag -eq 0 ]; then
 
 else
     # Check if Oh-My-Zsh exists
-    if [ -d "$HOME/.oh-my-zsh" ]; then
+    if [ -d "$ZSH" ]; then
         echo 'Oh-My-Zsh exists... skipping'; sleep 1
     else
         # Installing Oh-My-Zsh
         sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
     fi
+
+    # Check if Powerlevel9k theme exists
+    if [ ! -d "$PWRLVL9k" ]; then
+        git clone https://github.com/bhilburn/powerlevel9k.git powerlevel9k;
+        mv "$PWR" "$PWRLVL9k";
+
+        # Replace theme with custom theme
+        cp ../zsh-themes/powerlevel9k.zsh-theme "$PWRLVL9k/$PWR.zsh-theme"
+    fi
+
+    # Install Powerline fonts
+    echo 'Installing Powerline Fonts'
+    git clone https://github.com/powerline/fonts.git --depth=1 && cd fonts/;
+    source install.sh
+    cd ..; rm -rf fonts/
+    echo 'Installed. Please set the preferred font from profile preferences'
+    sleep 2;
 
     echo 'Installing RC files...'
     for rc_file in "${rc_list[@]}"; do
