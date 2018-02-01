@@ -7,8 +7,8 @@
 trap 'exit' ERR
 
 # List of rc_files with backups
-rc_list=( ".vimrc" ".bashrc" ".zshrc" ".zsh_aliases"
-         ".zsh_profile" ".gitconfig" );
+rc_list=( ".vimrc" ".bashrc" ".zshrc" ".zsh_aliases" ".gdbinit"
+         ".zsh_profile" ".gitconfig" ".powerlevel9k-setup" );
 
 
 # Remove all backups

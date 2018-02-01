@@ -11,8 +11,8 @@ PWR="powerlevel9k"
 PWRLVL9k="$ZSH/custom/themes/$PWR"
 
 # Place all required rc_files here
-rc_list=( ".vimrc" ".bashrc" ".zshrc" ".zsh_aliases"
-         ".zsh_profile" ".gitconfig" ".gdbinit" ".powerlevel9k-setup" );
+rc_list=( ".vimrc" ".bashrc" ".zshrc" ".zsh_aliases" ".gdbinit"
+         ".zsh_profile" ".gitconfig" ".powerlevel9k-setup" );
 
 # Check the kernel version and install ZSH accordingly
 if [ "$DISTRO" == 'ARCH' ]; then
