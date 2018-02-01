@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+
+########################################
+# Script to remove backups of dotfiles #
+########################################
+
+trap 'exit' ERR
+
+# List of rc_files with backups
+rc_list=( ".vimrc" ".bashrc" ".zshrc" ".zsh_aliases"
+         ".zsh_profile" ".gitconfig" );
+
+
+# Remove all backups
+for backup in "${rc_list[@]}"; do
+    if [[ -f "$HOME/$backup.backup" || -L "$HOME/$backup.backup" ]]; then
+        echo "$backup.backup found, removing..";
+        rm -f "$HOME/$backup.backup"; sleep 0.5;
+    fi
+done
+
+echo 'Done :)'; sleep 1;
+read -p 'Do you want to check for any stray backups?[Y/n] ' answer;
+
+if [[ $answer == '' || "${answer,,}" == 'y' ]]; then
+    for file in $(ls -la $HOME); do
+
+        # Get the filename and the extension
+        if [ $(echo $file | cut -c 1) == '.' ]; then
+            filename=$(basename "$file");
+            extension="${filename##*.}";
+
+            if [ "$extension" == 'backup' ]; then
+                rm -rf $file
+            fi
+        fi
+    done
+fi
+
+echo "All backups removed :)"
+exit 0;

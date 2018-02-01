@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+##########################################
+# Automated installation of my Dotfiles! #
+##########################################
+
 trap 'exit' ERR
 
 DISTRO=`uname -r | cut -d '-' -f 3`
@@ -24,29 +28,37 @@ do
         # Some Acknowledgements :P
         echo 'Congrats!! ZSH found in /etc/shells'; sleep 3
         
-        # Change the default shell
-        chsh -s $(which zsh)
-        flag=1
-        break
+        # Change the default shell if not already changed
+        current_shell=$(echo $SHELL)
+        if [ ! $current_shell == $(which zsh) ]; then
+            chsh -s $(which zsh)
+        fi
+
+        flag=1; break
     fi
 done
 
 if [ $flag -eq 0 ]; then
-    echo "Sorry, ZSH not found in /etc/shell :("
+    echo 'Sorry, ZSH not found in /etc/shell :('
     exit 1
 
 else
-    # Installing Oh-My-Zsh
-    sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+    # Check if Oh-My-Zsh exists
+    if [ -d "$HOME/.oh-my-zsh" ]; then
+        echo 'Oh-My-Zsh exists... skipping'; sleep 1
+    else
+        # Installing Oh-My-Zsh
+        sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+    fi
 
     echo 'Installing RC files...'
     for rc_file in "${rc_list[@]}"; do
         if [[ -f "../$rc_file" || -L "../$rc_file" ]]; then
-            echo 'Backing up previous files...'
+            echo "Backing up $rc_file ..."
             mv "$HOME/$rc_file" "$HOME/$rc_file".backup
         fi
 
-        cp "$HOME/Desktop/dotfiles/$rc_file" "$HOME/$rc_file"
+        cp "../$rc_file" "$HOME/$rc_file"
     done
 
     echo "Setup successful !!"
