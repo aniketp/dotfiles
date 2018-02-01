@@ -32,7 +32,7 @@ do
         
         # Change the default shell if not already changed
         current_shell=$(echo $SHELL)
-        if [ ! $current_shell == $(which zsh) ]; then
+        if [ ! "$current_shell" == $(which zsh) ]; then
             chsh -s $(which zsh)
         fi
 

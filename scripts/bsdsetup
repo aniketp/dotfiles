@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+###############################
+# Quick setup for FreeBSD VMs #
+###############################
+
+trap 'exit' ERR
+
+rc_list=( ".vimrc" ".bashrc" ".zshrc" ".zsh_aliases" ".gdbinit"
+         ".zsh_profile" ".gitconfig" ".powerlevel9k-setup" );
+
+if [ $(uname) == 'FreeBSD' ]; then
+    pkg install zsh nano
+    chsh -s $(which zsh)
+    source .zshrc
+
+    # Install oh-my-zsh
+    sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mast    er/tools/install.sh -O -)"
+
+    # Install Powerlevel9k
+    git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
+    cp ../zsh-themes/powerlevel9k.zsh-theme ~/.oh-my-zsh/custom/themes/powerlevel9k/powerlevel9k.zsh-theme
+
+    echo 'Installing RC files...'
+    for rc_file in "${rc_list[@]}"; do
+        if [[ -f "../$rc_file" || -L "../$rc_file" ]]; then
+            echo "Backing up $rc_file ..."
+            mv "$HOME/$rc_file" "$HOME/$rc_file".backup
+        fi
+
+        cp "../$rc_file" "$HOME/$rc_file"
+    done
+
+    echo "Setup successful !!"
+fi
