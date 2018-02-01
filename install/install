@@ -5,8 +5,8 @@ trap 'exit' ERR
 DISTRO=`uname -r | cut -d '-' -f 3`
 
 # Place all required rc_files here
-rc_list=(".vimrc" ".bashrc" ".zshrc", ".zsh_aliases"
-         ".zsh_profile" ".gitconfig");
+rc_list=( ".vimrc" ".bashrc" ".zshrc" ".zsh_aliases"
+         ".zsh_profile" ".gitconfig" );
 
 # Check the kernel version and install ZSH accordingly
 if [ "$DISTRO" == 'ARCH' ]; then
@@ -41,14 +41,13 @@ else
 
     echo 'Installing RC files...'
     for rc_file in "${rc_list[@]}"; do
-        if [[ -f $rc_file || -L $rc_file ]]; then
+        if [[ -f "../$rc_file" || -L "../$rc_file" ]]; then
             echo 'Backing up previous files...'
             mv "$HOME/$rc_file" "$HOME/$rc_file".backup
         fi
 
-        sudo cp "$HOME/dotfiles/$rc_file" "$HOME/$rc_file"
+        cp "$HOME/Desktop/dotfiles/$rc_file" "$HOME/$rc_file"
     done
 
-#    source "$HOME"/.zshrc
     echo "Setup successful !!"
 fi
