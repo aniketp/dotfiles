@@ -30,3 +30,7 @@ alias upgrade='sudo apt-get upgrade'
 # weather stuff
 alias weather="curl -4 'http://wttr.in/Kanpur?m'"
 alias weather-delhi="curl -4 'http://wttr.in/Delhi?m'"
+
+# FreeBSD audit
+alias don='service auditd start'
+alias stop='audit -t'
