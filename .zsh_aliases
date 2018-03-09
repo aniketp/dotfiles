@@ -19,7 +19,7 @@ alias lt='exa -hl -T'
 alias commit='git add --all; git commit -m'
 alias push='git push origin master'
 alias pull='git pull origin master'
-alias amend='git commit --amend'
+alias amend='git commit --amend --date="$(date -R)"'
 alias seturl='git remote set-url origin'
 
 # clumsy apt-get
