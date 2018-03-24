@@ -10,12 +10,12 @@ filetype plugin indent on
 
 colorscheme badwolf         " Awesome colorscheme
 
-set tabstop=4				" show existing tab with 4 spaces width
+set tabstop=4               " show existing tab with 4 spaces width
 set softtabstop=4           " number of spacesin tab while editing
-set shiftwidth=4			" when indenting with '>', use 4 spaces width
-set expandtab				" On pressing tab, insert 4 spaces
-set number				    " Show numbers
-set background=dark			" Cool Background
+set shiftwidth=4            " when indenting with '>', use 4 spaces width
+set expandtab               " On pressing tab, insert 4 spaces
+set number                  " Show numbers
+set background=dark         " Cool Background
 
 set showcmd                 " show command in the bottom bar
 set cursorline              " highlight current line
