@@ -81,7 +81,7 @@ bindsym $mod+a focus parent
 bindsym $mod+t focus child
 
 # lockscreen
-bindsym $mod+Shift+g exec i3lock
+bindsym $mod+Shift+l exec i3lock
 
 # switch to workspace
 bindsym $mod+1 workspace 1
@@ -185,3 +185,6 @@ bindsym XF86AudioPrev exec playerctl previous
 
 # To fix the inverted vertical scrolling 
 exec_always --no-startup-id synclient VertScrollDelta=-50
+
+# Load Defined Wallpaper
+exec_always --no-startup-id feh --bg-scale /home/aniket/Pictures/Wallpapers/ubuntu.jpeg
