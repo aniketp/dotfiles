@@ -170,3 +170,6 @@ bindsym XF86AudioPlay exec playerctl play
 bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
+
+# To fix the inverted vertical scrolling 
+exec --no-startup-id synclient VertScrollDelta=-111
