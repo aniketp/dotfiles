@@ -42,25 +42,13 @@ bindsym $mod+d exec dmenu_run
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
-# change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
-
-# alternatively, you can use the cursor keys:
+# you can use the cursor keys:
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
-# move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
-
-# alternatively, you can use the cursor keys:
+# you can use the cursor keys:
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
@@ -119,6 +107,30 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
+# switch to workspace
+bindsym $mod+KP_1 workspace 1
+bindsym $mod+KP_2 workspace 2
+bindsym $mod+KP_3 workspace 3
+bindsym $mod+KP_4 workspace 4
+bindsym $mod+KP_5 workspace 5
+bindsym $mod+KP_6 workspace 6
+bindsym $mod+KP_7 workspace 7
+bindsym $mod+KP_8 workspace 8
+bindsym $mod+KP_9 workspace 9
+bindsym $mod+KP_0 workspace 10
+
+# move focused container to workspace
+bindsym $mod+Shift+KP_1 move container to workspace 1
+bindsym $mod+Shift+KP_2 move container to workspace 2
+bindsym $mod+Shift+KP_3 move container to workspace 3
+bindsym $mod+Shift+KP_4 move container to workspace 4
+bindsym $mod+Shift+KP_5 move container to workspace 5
+bindsym $mod+Shift+KP_6 move container to workspace 6
+bindsym $mod+Shift+KP_7 move container to workspace 7
+bindsym $mod+Shift+KP_8 move container to workspace 8
+bindsym $mod+Shift+KP_9 move container to workspace 9
+bindsym $mod+Shift+KP_0 move container to workspace 10
+
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -172,4 +184,4 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # To fix the inverted vertical scrolling 
-exec --no-startup-id synclient VertScrollDelta=-111
+exec_always --no-startup-id synclient VertScrollDelta=-50
