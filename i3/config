@@ -164,6 +164,22 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
+mode "$mode_system" {
+    bindsym l exec --no-startup-id i3exit lock, mode "default"
+    bindsym e exec --no-startup-id i3exit logout, mode "default"
+    bindsym s exec --no-startup-id i3exit suspend, mode "default"
+    bindsym h exec --no-startup-id i3exit hibernate, mode "default"
+    bindsym r exec --no-startup-id i3exit reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+Pause mode "$mode_system"
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
@@ -177,6 +193,11 @@ bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 2%-       # decrea
 bindsym XF86AudioMute        exec amixer -D pulse sset Master mute      # mute sound
 bindsym $mod+XF86AudioMute   exec amixer -D pulse sset Master unmute    # unmute sound
 
+# Screen Brightness Control
+bindsym XF86MonBrightnessUp exec /home/aniket/scripts/brightness.sh 1
+bindsym XF86MonBrightnessDown exec /home/aniket/scripts/brightness.sh 0
+
+
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play
 bindsym XF86AudioPause exec playerctl pause
@@ -184,7 +205,13 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # To fix the inverted vertical scrolling 
-exec_always --no-startup-id synclient VertScrollDelta=-50
+exec_always --no-startup-id synclient VertScroll=79 synclient HorizScroll=-79
 
 # Load Defined Wallpaper
 exec_always --no-startup-id feh --bg-scale /home/aniket/Pictures/Wallpapers/ubuntu.jpeg
+
+assign [class="Google-chrome"] 1
+assign [class="Slack"] 7
+
+exec google-chrome-stable
+exec slack
