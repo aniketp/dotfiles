@@ -209,10 +209,14 @@ exec_always --no-startup-id feh --bg-scale /home/aniket/Pictures/Wallpapers/ubun
 
 assign [class="Google-chrome" instance="youtube.com"] 9
 assign [class="Google-chrome" instance="messenger.com"] 8
+assign [class="Google-chrome" instance="nwm.iitk.ac.in"] 7
 assign [class="Slack"] 7
 
+# i3 startup applications
 exec nm-applet
 exec blueman-applet
+exec google-chrome-stable --new-window
 exec google-chrome-stable --new-window --app=https://www.youtube.com/
 exec google-chrome-stable --new-window --app=https://www.messenger.com/
+exec google-chrome-stable --new-window --app=https://nwm.iitk.ac.in/ 
 # exec slack
