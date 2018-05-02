@@ -207,15 +207,22 @@ bindsym XF86AudioPrev exec playerctl previous
 # Load Defined Wallpaper
 exec_always --no-startup-id feh --bg-scale /home/aniket/Pictures/Wallpapers/ubuntu.jpeg
 
-assign [class="Google-chrome" instance="youtube.com"] 9
-assign [class="Google-chrome" instance="messenger.com"] 8
+assign [class="Google-chrome" instance="hackcave.ryver.com"] 5
+assign [class="Google-chrome" instance="irc.aniketpandey.com"] 6
 assign [class="Google-chrome" instance="nwm.iitk.ac.in"] 7
-assign [class="Slack"] 7
+assign [class="Google-chrome" instance="messenger.com"] 8
+assign [class="Google-chrome" instance="youtube.com"] 9
+# assign [class="Slack"] 7
 
 # i3 startup applications
 exec nm-applet
 exec blueman-applet
+exec xrandr --output HDMI-0 --left-of eDP-1-1
+
+# Google Chrome applications
 exec google-chrome-stable --new-window
+exec google-chrome-stable --new-window --app=http://hackcave.ryver.com/
+exec google-chrome-stable --new-window --app=http://irc.aniketpandey.com/
 exec google-chrome-stable --new-window --app=https://www.youtube.com/
 exec google-chrome-stable --new-window --app=https://www.messenger.com/
 exec google-chrome-stable --new-window --app=https://nwm.iitk.ac.in/ 
