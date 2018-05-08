@@ -83,53 +83,68 @@ bindsym $mod+t focus child
 # lockscreen
 bindsym $mod+Shift+l exec i3lock
 
-# switch to workspace
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
+# shutdown
+bindsym $mod+Shift+x exec systemctl poweroff
 
-# move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
+# workspace symbols
+set $ws1 "1:🌐"
+set $ws2 "2:💻"
+set $ws3 "3:☣️"
+set $ws4 "4:📃"
+set $ws5 "5:🏞️"
+set $ws6 "6:🔀"
+set $ws7 "7:📧"
+set $ws8 "8:💬"
+set $ws9 "9:🎧"
+set $ws10 "10:🖧"
 
 # switch to workspace
-bindsym $mod+KP_1 workspace 1
-bindsym $mod+KP_2 workspace 2
-bindsym $mod+KP_3 workspace 3
-bindsym $mod+KP_4 workspace 4
-bindsym $mod+KP_5 workspace 5
-bindsym $mod+KP_6 workspace 6
-bindsym $mod+KP_7 workspace 7
-bindsym $mod+KP_8 workspace 8
-bindsym $mod+KP_9 workspace 9
-bindsym $mod+KP_0 workspace 10
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7 
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
 
 # move focused container to workspace
-bindsym $mod+Shift+KP_1 move container to workspace 1
-bindsym $mod+Shift+KP_2 move container to workspace 2
-bindsym $mod+Shift+KP_3 move container to workspace 3
-bindsym $mod+Shift+KP_4 move container to workspace 4
-bindsym $mod+Shift+KP_5 move container to workspace 5
-bindsym $mod+Shift+KP_6 move container to workspace 6
-bindsym $mod+Shift+KP_7 move container to workspace 7
-bindsym $mod+Shift+KP_8 move container to workspace 8
-bindsym $mod+Shift+KP_9 move container to workspace 9
-bindsym $mod+Shift+KP_0 move container to workspace 10
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
+
+# switch to workspace
+bindsym $mod+KP_1 workspace $ws1
+bindsym $mod+KP_2 workspace $ws2
+bindsym $mod+KP_3 workspace $ws3
+bindsym $mod+KP_4 workspace $ws4
+bindsym $mod+KP_5 workspace $ws5
+bindsym $mod+KP_6 workspace $ws6
+bindsym $mod+KP_7 workspace $ws7
+bindsym $mod+KP_8 workspace $ws8
+bindsym $mod+KP_9 workspace $ws9
+bindsym $mod+KP_0 workspace $ws10
+
+# move focused container to workspace
+bindsym $mod+Shift+KP_1 move container to workspace $ws1
+bindsym $mod+Shift+KP_2 move container to workspace $ws2
+bindsym $mod+Shift+KP_3 move container to workspace $ws3
+bindsym $mod+Shift+KP_4 move container to workspace $ws4
+bindsym $mod+Shift+KP_5 move container to workspace $ws5
+bindsym $mod+Shift+KP_6 move container to workspace $ws6
+bindsym $mod+Shift+KP_7 move container to workspace $ws7
+bindsym $mod+Shift+KP_8 move container to workspace $ws8
+bindsym $mod+Shift+KP_9 move container to workspace $ws9
+bindsym $mod+Shift+KP_0 move container to workspace $ws10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -164,21 +179,6 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
-mode "$mode_system" {
-    bindsym l exec --no-startup-id i3exit lock, mode "default"
-    bindsym e exec --no-startup-id i3exit logout, mode "default"
-    bindsym s exec --no-startup-id i3exit suspend, mode "default"
-    bindsym h exec --no-startup-id i3exit hibernate, mode "default"
-    bindsym r exec --no-startup-id i3exit reboot, mode "default"
-    bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
-
-    # back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-
-bindsym $mod+Pause mode "$mode_system"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -207,15 +207,17 @@ bindsym XF86AudioPrev exec playerctl previous
 # Load Defined Wallpaper
 exec_always --no-startup-id feh --bg-scale /home/aniket/Pictures/Wallpapers/ubuntu.jpeg
 
-assign [class="Google-chrome" instance="hackcave.ryver.com"] 5
-assign [class="Google-chrome" instance="irc.aniketpandey.com"] 6
-assign [class="Google-chrome" instance="nwm.iitk.ac.in"] 7
-assign [class="Google-chrome" instance="messenger.com"] 8
-assign [class="Google-chrome" instance="youtube.com"] 9
+assign [class="Google-chrome" instance="hackcave.ryver.com"] $ws5
+assign [class="Google-chrome" instance="irc.aniketpandey.com"] $ws6
+assign [class="Google-chrome" instance="nwm.iitk.ac.in"] $ws7 
+assign [class="Google-chrome" instance="messenger.com"] $ws8
+assign [class="Google-chrome" instance="youtube.com"] $ws9
+assign [class="VirtualBox Manager"] $ws10
 # assign [class="Slack"] 7
 
 # i3 startup applications
 exec nm-applet
+exec virtualbox
 exec blueman-applet
 exec xrandr --output HDMI-0 --left-of eDP-1-1
 
