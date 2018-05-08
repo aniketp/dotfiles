@@ -77,7 +77,7 @@ bindsym $mod+a focus parent
 bindsym $mod+t focus child
 
 # lockscreen
-bindsym $mod+Shift+l exec i3lock
+bindsym $mod+Shift+l exec /home/aniket/.config/i3/scripts/lock.sh /home/aniket/.config/i3/images/lock.png
 
 # shutdown
 bindsym $mod+Shift+x exec systemctl poweroff
