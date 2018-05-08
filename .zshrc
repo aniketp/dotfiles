@@ -7,6 +7,9 @@ export ZSH=$HOME/.oh-my-zsh
 # Load the powerlevel9k configuration file
 source $HOME/.powerlevel9k-setup
 
+# Load zsh-autosuggestions
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
@@ -90,3 +93,12 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # Add luarocks packages to PATH
 # eval $(luarocks path --bin)
+#
+export PATH=$PATH:/usr/local/go/bin
+export GOPATH=$HOME/go;
+export PATH=$PATH:$GOPATH/bin;
+
+export NVM_DIR="/home/aniket/.nvm"
+#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
