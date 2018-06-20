@@ -4,9 +4,11 @@
 alias sb='subl'
 alias sf='screenfetch'
 alias ifc='ifconfig'
+alias fuck='fuck -y'
 
 # Program Interpreters
 alias python='python3'
+alias pip='pip3'
 
 # daily-use commands
 alias rm='rm -rf'
@@ -15,12 +17,19 @@ alias l='exa -iBghlSu --git --all'
 alias lt='exa -hl -T'
 
 # git stuff
-# alias add='git add --all'
+alias add='git add --all'
 alias commit='git add --all; git commit -m'
 alias push='git push origin master'
 alias pull='git pull origin master'
+alias gl='git log'
+alias gco='git checkout'
+alias gcom='git checkout master'
+alias st='git status'
 alias amend='git commit --amend --date="$(date -R)"'
 alias seturl='git remote set-url origin'
+alias reset='git reset --hard'
+alias diff='git diff'
+alias boom='git fetch upstream; gcom; git merge upstream/master; push'
 
 # clumsy apt-get
 alias install='sudo apt-get install -y'
@@ -30,6 +39,9 @@ alias upgrade='sudo apt-get upgrade'
 # weather stuff
 alias weather="curl -4 'http://wttr.in/Kanpur?m'"
 alias weather-delhi="curl -4 'http://wttr.in/Delhi?m'"
+
+# Custom screenshot location
+alias myscrot='scrot ~/Pictures/Screenshots/%b%d::%H%M%S.png'
 
 # FreeBSD audit
 alias don='service auditd start'
