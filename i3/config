@@ -77,7 +77,8 @@ bindsym $mod+a focus parent
 bindsym $mod+t focus child
 
 # lockscreen
-bindsym $mod+Shift+l exec /home/aniket/.config/i3/scripts/lock.sh /home/aniket/.config/i3/images/lock.png
+#bindsym $mod+Shift+l exec /home/aniket/.config/i3/scripts/lock.sh /home/aniket/.config/i3/images/lock.png
+bindsym $mod+Shift+l exec betterlockscreen --lock blur
 
 # shutdown
 bindsym $mod+Shift+x exec systemctl poweroff
@@ -146,6 +147,8 @@ bindsym $mod+Shift+KP_0 move container to workspace $ws10
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
+# Quick screenshot
+bindsym Print exec --no-startup-id scrot ~/Pictures/Screenshots/%b%d::%H%M%S.png
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
@@ -225,9 +228,8 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # Load Defined Wallpaper
-exec_always --no-startup-id feh --bg-scale /home/aniket/Pictures/Wallpapers/ubuntu.jpeg
+exec_always --no-startup-id feh --bg-scale /home/aniket/Pictures/Wallpapers/FreeBSD.jpg
 
-assign [class="Google-chrome" instance="hackcave.ryver.com"] $ws5
 assign [class="Google-chrome" instance="irc.aniketpandey.com"] $ws6
 assign [class="Google-chrome" instance="nwm.iitk.ac.in"] $ws7 
 assign [class="Google-chrome" instance="messenger.com"] $ws8
@@ -244,9 +246,7 @@ exec --no-startup-id xrandr --output HDMI-0 --left-of eDP-1-1
 
 # Google Chrome applications
 exec google-chrome-stable --new-window
-exec google-chrome-stable --new-window --app=http://hackcave.ryver.com/
 exec google-chrome-stable --new-window --app=http://irc.aniketpandey.com/
 exec google-chrome-stable --new-window --app=https://www.youtube.com/
 exec google-chrome-stable --new-window --app=https://www.messenger.com/
 exec google-chrome-stable --new-window --app=https://nwm.iitk.ac.in/ 
-# exec slack
