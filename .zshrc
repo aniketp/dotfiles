@@ -57,7 +57,7 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git sudo colored-man-pages zsh-syntax-highlighting)
+plugins=(sudo colored-man-pages zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -94,6 +94,21 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 # Add luarocks packages to PATH
 # eval $(luarocks path --bin)
 #
+
+check_binary()
+{
+    local cmd=$(which $1 2>/dev/null || echo FALSE)
+    echo $cmd
+}
+
+if [ "$(check_binary luarocks)" != "FALSE" ]; then
+	eval $(luarocks path --bin)
+fi
+
+#if [ "$(check_binary minikube)" != "FALSE" ]; then
+#	eval $(minikube docker-env)
+#fi
+
 export PATH=$PATH:/usr/local/go/bin
 export GOPATH=$HOME/go;
 export PATH=$PATH:$GOPATH/bin;
@@ -102,3 +117,7 @@ export NVM_DIR="/home/aniket/.nvm"
 #[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+export VISUAL=vim
+export EDITOR="$VISUAL"
+eval $(thefuck --alias)
