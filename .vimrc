@@ -11,7 +11,11 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'octol/vim-cpp-enhanced-highlight'
+Plugin 'scrooloose/nerdcommenter'
 Plugin 'morhetz/gruvbox'			" Vim colorscheme
+Plugin 'fatih/vim-go'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -37,26 +41,25 @@ endif
 " filetype indent on
 filetype plugin indent on
 
-colorscheme afterglow 
+colorscheme harlequin
 
-set tabstop=4				" show existing tab with 4 spaces width
+set tabstop=8				" show existing tab with 4 spaces width
 " set softtabstop=4           " number of spacesin tab while editing
-set shiftwidth=4			" when indenting with '>', use 4 spaces width
-set noexpandtab				" On pressing tab, insert 4 spaces
-set number				    " Show numbers
+set shiftwidth=8			" when indenting with '>', use 4 spaces width
+set noexpandtab				" Use hard tabs instead of soft tabs 
+set number relativenumber		" Show numbers
 set background=dark			" Cool Background
-
-set showcmd                 " show command in the bottom bar
-set cursorline              " highlight current line
-set wildmenu                " visual autocomplete for command menu
-set lazyredraw              " redraw only what we need to
-set showmatch               " Highlight matching paranthesis
-
-" Searching
+set cursorline
+set mouse=a				" Enable mouse for all modes
+set guifont=* 
 
 
 " Fix for backspacing issue /if any
 set backspace=indent,eol,start
+
+let mapleader = ","
+imap <F4> <Esc>:w<Enter>:!xelatex resume.tex <Enter>
+map <F4> :w<Enter>:!xelatex resume.tex <Enter>
 
 " For editing files requiring root privileges
 cmap w!! w !sudo tee % >/dev/null

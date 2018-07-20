@@ -237,6 +237,18 @@ assign [class="Google-chrome" instance="youtube.com"] $ws9
 assign [class="VirtualBox Manager"] $ws10
 # assign [class="Slack"] 7
 
+# Assign workspaces to monitors
+workspace $ws1 output HDMI-0
+workspace $ws2 output HDMI-0
+workspace $ws3 output HDMI-0
+workspace $ws4 output HDMI-0
+workspace $ws5 output HDMI-0
+workspace $ws6 output HDMI-0
+workspace $ws7 output HDMI-0
+workspace $ws8 output eDP-1-1
+workspace $ws9 output eDP-1-1
+workspace $ws10 output eDP-1-1
+
 # i3 startup applications
 exec virtualbox
 exec --no-startup-id compton -f
@@ -248,5 +260,5 @@ exec --no-startup-id xrandr --output HDMI-0 --left-of eDP-1-1
 exec google-chrome-stable --new-window
 exec google-chrome-stable --new-window --app=http://irc.aniketpandey.com/
 exec google-chrome-stable --new-window --app=https://www.youtube.com/
-exec google-chrome-stable --new-window --app=https://www.messenger.com/
+#exec google-chrome-stable --new-window --app=https://www.messenger.com/
 exec google-chrome-stable --new-window --app=https://nwm.iitk.ac.in/ 
