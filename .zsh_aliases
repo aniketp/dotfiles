@@ -5,6 +5,7 @@ alias sb='subl'
 alias sf='screenfetch'
 alias ifc='ifconfig'
 alias fuck='fuck -y'
+alias ev='evince'
 
 # Program Interpreters
 alias python='python3'
@@ -15,6 +16,7 @@ alias rm='rm -rf'
 alias c='cd ~/Desktop'
 alias l='exa -iBghlSu --git --all'
 alias lt='exa -hl -T'
+alias cat='less'
 
 # git stuff
 alias add='git add --all'
@@ -42,6 +44,9 @@ alias weather-delhi="curl -4 'http://wttr.in/Delhi?m'"
 
 # Custom screenshot location
 alias myscrot='scrot ~/Pictures/Screenshots/%b%d::%H%M%S.png'
+
+# OS Stuff
+alias qemu='qemu-system-x86_64'
 
 # FreeBSD audit
 alias don='service auditd start'
