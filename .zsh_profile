@@ -1,16 +1,50 @@
 #!/bin/zsh
 
-a1=$(($RANDOM%10))
-a2=$(($RANDOM%10))
+#a1=$(($RANDOM%10))
+#a2=$(($RANDOM%10))
 
-# Passing randomly generated numbers to Screenfetch for a sylish entry !
-screenfetch -c "$a1,$a2"
+## Passing randomly generated numbers to Screenfetch for a sylish entry !
+#screenfetch -c "$a1,$a2"
 
-# Who doesn't love cows... sweet, smart cows !!
-if [ -x /usr/games/cowsay -a -x /usr/games/fortune ]; then
-    fortune | cowsay
+## Who doesn't love cows... sweet, smart cows !!
+#if [ -x /usr/games/cowsay -a -x /usr/games/fortune ]; then
+    #fortune | cowsay
 
-    # In case I'm bored with just cows, many more animals available...
-    # fortune -a | fmt -80 -s | $(shuf -n 1 -e cowsay cowthink) -$(shuf -n 1 -e b d g p s t w y) -f $(shuf -n 1 -e $(cowsay -l | tail -n +2)) -n
+    ## In case I'm bored with just cows, many more animals available...
+    ## fortune -a | fmt -80 -s | $(shuf -n 1 -e cowsay cowthink) -$(shuf -n 1 -e b d g p s t w y) -f $(shuf -n 1 -e $(cowsay -l | tail -n +2)) -n
+#fi
+
+# Add luarocks packages to PATH
+# eval $(luarocks path --bin)
+#
+
+if [ -z "$DISPLAY" -a $XDG_VTNR -eq 1 ]; then
+	startx
 fi
 
+check_binary()
+{
+    local cmd=$(which $1 2>/dev/null || echo FALSE)
+    echo $cmd
+}
+
+if [ "$(check_binary luarocks)" != "FALSE" ]; then
+	eval $(luarocks path --bin)
+fi
+
+#if [ "$(check_binary minikube)" != "FALSE" ]; then
+#	eval $(minikube docker-env)
+#fi
+
+export PATH=$PATH:/usr/local/go/bin
+export GOPATH=$HOME/go;
+export PATH=$PATH:$GOPATH/bin;
+
+export NVM_DIR="/home/aniket/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+export VISUAL=vim
+export EDITOR="$VISUAL"
+eval $(thefuck --alias)
