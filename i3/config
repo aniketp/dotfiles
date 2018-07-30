@@ -78,7 +78,7 @@ bindsym $mod+t focus child
 
 # lockscreen
 #bindsym $mod+Shift+l exec /home/aniket/.config/i3/scripts/lock.sh /home/aniket/.config/i3/images/lock.png
-bindsym $mod+Shift+l exec betterlockscreen --lock blur
+bindsym $mod+Shift+l exec betterlockscreen --lock
 
 # shutdown
 bindsym $mod+Shift+x exec systemctl poweroff
@@ -230,12 +230,11 @@ bindsym XF86AudioPrev exec playerctl previous
 # Load Defined Wallpaper
 exec_always --no-startup-id feh --bg-scale /home/aniket/Pictures/Wallpapers/FreeBSD.jpg
 
-assign [class="Google-chrome" instance="irc.aniketpandey.com"] $ws6
-assign [class="Google-chrome" instance="nwm.iitk.ac.in"] $ws7 
-assign [class="Google-chrome" instance="messenger.com"] $ws8
+assign [class="Google-chrome" instance="nwm.iitk.ac.in"] $ws8
 assign [class="Google-chrome" instance="youtube.com"] $ws9
 assign [class="VirtualBox Manager"] $ws10
-# assign [class="Slack"] 7
+
+for_window [class="Peek"] floating enable
 
 # Assign workspaces to monitors
 workspace $ws1 output HDMI-0
@@ -258,7 +257,5 @@ exec --no-startup-id xrandr --output HDMI-0 --left-of eDP-1-1
 
 # Google Chrome applications
 exec google-chrome-stable --new-window
-exec google-chrome-stable --new-window --app=http://irc.aniketpandey.com/
 exec google-chrome-stable --new-window --app=https://www.youtube.com/
-#exec google-chrome-stable --new-window --app=https://www.messenger.com/
 exec google-chrome-stable --new-window --app=https://nwm.iitk.ac.in/ 
