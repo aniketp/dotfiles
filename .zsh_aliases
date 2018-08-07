@@ -11,6 +11,9 @@ alias ev='evince'
 alias python='python3'
 alias pip='pip3'
 
+# gcc, g++
+alias g++='g++ -std=c++11'
+
 # daily-use commands
 alias rm='rm -rf'
 alias c='cd ~/Desktop'
@@ -23,7 +26,7 @@ alias add='git add --all'
 alias commit='git add --all; git commit -m'
 alias push='git push origin master'
 alias pull='git pull origin master'
-alias gl='git log'
+alias gl='git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit'
 alias gco='git checkout'
 alias gcom='git checkout master'
 alias st='git status'
@@ -51,3 +54,6 @@ alias qemu='qemu-system-x86_64'
 # FreeBSD audit
 alias don='service auditd start'
 alias stop='audit -t'
+
+alias mkcd='mkcd() { mkdir "$1" && cd "$1" }; mkcd'
+alias count='count() { total=$1; for ((i=total; i>0; i--)); do printf "Time remaining $i secs \r"; sleep 1; done }; count'
