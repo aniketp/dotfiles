@@ -1,6 +1,7 @@
 # ZSH Aliases
 
 # shorthands
+alias v='vim'
 alias sb='subl'
 alias sf='screenfetch'
 alias ifc='ifconfig'
@@ -19,7 +20,7 @@ alias rm='rm -rf'
 alias c='cd ~/Desktop'
 alias l='exa -iBghlSu --git --all'
 alias lt='exa -hl -T'
-alias cat='less'
+#alias cat='less'
 
 # git stuff
 alias add='git add --all'
@@ -57,3 +58,4 @@ alias stop='audit -t'
 
 alias mkcd='mkcd() { mkdir "$1" && cd "$1" }; mkcd'
 alias count='count() { total=$1; for ((i=total; i>0; i--)); do printf "Time remaining $i secs \r"; sleep 1; done }; count'
+alias cd='cdi() { cd "$1" && l }; cdi'
