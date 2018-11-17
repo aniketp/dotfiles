@@ -8,12 +8,17 @@ alias ifc='ifconfig'
 alias fuck='fuck -y'
 alias ev='evince'
 
+# System specific
+alias conk='conky'
+alias gla='glances -t 1'
+
 # Program Interpreters
 alias python='python3'
 alias pip='pip3'
 
 # gcc, g++
 alias g++='g++ -std=c++11'
+alias makeall='make clean && make all'
 
 # daily-use commands
 alias rm='rm -rf'
@@ -39,8 +44,8 @@ alias boom='git fetch upstream; gcom; git merge upstream/master; push'
 
 # clumsy apt-get
 alias install='sudo apt-get install -y'
-alias update='sudo apt-get update'
-alias upgrade='sudo apt-get upgrade'
+alias update='sudo apt-get update; notify'
+alias upgrade='sudo apt-get upgrade; notify'
 
 # weather stuff
 alias weather="curl -4 'http://wttr.in/Kanpur?m'"
