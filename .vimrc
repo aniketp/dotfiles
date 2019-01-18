@@ -17,6 +17,10 @@ Plugin 'fatih/vim-go'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
+" vim-airline settings
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='minimalist'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 " To ignore plugin indent changes, instead use:
@@ -41,25 +45,38 @@ endif
 " filetype indent on
 filetype plugin indent on
 
+" Jump to last cursor position unless it's invalid or in an event handler
+autocmd BufReadPost *
+	\ if line("'\"") > 0 && line("'\"") <= line("$") |
+	\   exe "normal g`\"" |
+	\ endif
+
+" Set highlighter for 80 character limit
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%81v.\+/
+
 colorscheme harlequin
 
-set tabstop=8				" show existing tab with 4 spaces width
+set tabstop=4				" show existing tab with 4 spaces width
 " set softtabstop=4           " number of spacesin tab while editing
-set shiftwidth=8			" when indenting with '>', use 4 spaces width
-set noexpandtab				" Use hard tabs instead of soft tabs 
+set shiftwidth=4			" when indenting with '>', use 4 spaces width
+set expandtab				" Use hard tabs instead of soft tabs 
 set number relativenumber		" Show numbers
 set background=dark			" Cool Background
 set cursorline
 set mouse=a				" Enable mouse for all modes
-set guifont=* 
+set colorcolumn=80
+set guifont=*
 
 
 " Fix for backspacing issue /if any
 set backspace=indent,eol,start
 
 let mapleader = ","
-imap <F4> <Esc>:w<Enter>:!xelatex resume.tex <Enter>
-map <F4> :w<Enter>:!xelatex resume.tex <Enter>
+inoremap <F4> <Esc>:w<Enter>:!xelatex resume.tex <Enter>
+"inoremap <Enter><Enter> <Esc>:wq<Enter>
+noremap <F4> :w<Enter>:!xelatex resume.tex <Enter>
+noremap <Enter><Enter> <Esc>:wq<Enter>
 
 " For editing files requiring root privileges
 cmap w!! w !sudo tee % >/dev/null
