@@ -35,6 +35,10 @@ bindsym $mod+Return exec i3-sensible-terminal
 # kill focused window
 bindsym $mod+Shift+q kill
 
+# Monitor adjustments
+bindsym $mod+Shift+z exec xrandr --output HDMI-0 --left-of eDP-1-1
+bindsym $mod+Shift+y exec xrandr --output HDMI-0 --same-as eDP-1-1
+
 # start rofi (a program launcher)
 bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 100 -padding 450 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "System San Francisco Display 25"
 
@@ -216,6 +220,12 @@ bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 4%-       # decrea
 bindsym XF86AudioMute        exec amixer -D pulse sset Master mute      # mute sound
 bindsym $mod+XF86AudioMute   exec amixer -D pulse sset Master unmute    # unmute sound
 
+# For the Red-Gear keyboard with inverted Fn key
+bindsym F3	exec amixer -D pulse sset Master 4%+       # increase sound volume
+bindsym F2	exec amixer -D pulse sset Master 4%-       # decrease sound volume
+bindsym F4	exec amixer -D pulse sset Master mute      # mute sound
+bindsym F1	exec amixer -D pulse sset Master unmute    # unmute sound
+
 # Screen Brightness Control
 bindsym XF86MonBrightnessUp exec /home/aniket/.config/i3/scripts/brightness.sh 1
 bindsym XF86MonBrightnessDown exec /home/aniket/.config/i3/scripts/brightness.sh 0
@@ -249,7 +259,7 @@ workspace $ws9 output eDP-1-1
 workspace $ws10 output eDP-1-1
 
 # i3 startup applications
-exec virtualbox
+# exec virtualbox
 exec --no-startup-id compton -f
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
