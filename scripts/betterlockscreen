@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+
+# create folder in ~/.cache/i3lock directory
+folder="$HOME/.cache/i3lock"
+
+
+prelock() {
+	pkill -u "$USER" -USR1 dunst
+}
+
+lock() {
+	#$1 image path
+	i3lock -t -i ${folder}
+}
+
+postlock() {
+	pkill -u "$USER" -USR2 dunst
+}
+
+# Gets random pics incorrectly; fix this
+rec_get_random() {
+	folder=${folder}/$(ls ${folder} |sort -R |tail -1)
+	#folder=${folder[RANDOM % ${#folder[@]}]}
+	return
+}
+
+lockselect() {
+			# default lockscreen
+			prelock
+			rec_get_random ${folder}
+			lock
+			postlock
+}
+
+lockselect
+
+# convert 601862.jpg -resize 1920x1080^ -gravity center -extent 1920x1080 56615.png
+# find ~/Downloads/  -maxdepth 1 -name '*.jpg' -exec cp {} . \; 
