@@ -83,6 +83,8 @@ bindsym $mod+t focus child
 # lockscreen
 #bindsym $mod+Shift+l exec /home/aniket/.config/i3/scripts/lock.sh /home/aniket/.config/i3/images/lock.png
 bindsym $mod+Shift+l exec betterlockscreen --lock
+bindsym $mod+Shift+k exec i3lock -t -i ~/.cache/i3lock/black.png
+# (This one for a darker background; in case the screenlight is not preferred)
 
 # shutdown
 bindsym $mod+Shift+x exec systemctl poweroff
