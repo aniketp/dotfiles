@@ -243,10 +243,11 @@ bindsym XF86AudioPrev exec playerctl previous
 exec_always --no-startup-id feh --bg-scale /home/aniket/Pictures/Wallpapers/FreeBSD.jpg
 
 assign [class="Google-chrome" instance="nwm.iitk.ac.in"] $ws8
-assign [class="Google-chrome" instance="youtube.com"] $ws9
+#assign [class="Spotify"] $ws9
 assign [class="VirtualBox Manager"] $ws10
 
 for_window [class="Peek"] floating enable
+for_window [class="Spotify"] move to workspace $ws9
 
 # Assign workspaces to monitors
 workspace $ws1 output HDMI-0
@@ -265,9 +266,9 @@ workspace $ws10 output eDP-1-1
 exec --no-startup-id compton -f
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
+exec --no-startup-id spotify
 exec --no-startup-id xrandr --output HDMI-0 --left-of eDP-1-1
 
 # Google Chrome applications
 exec google-chrome-stable --new-window
-exec google-chrome-stable --new-window --app=https://www.youtube.com/
 exec google-chrome-stable --new-window --app=https://nwm.iitk.ac.in/ 
