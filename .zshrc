@@ -10,6 +10,9 @@ source $HOME/.powerlevel9k-setup
 # Load zsh-autosuggestions
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
+# Fix for TMUX 256-color support
+export TERM="xterm-256color"
+
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
@@ -90,4 +93,3 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 # Load zsh_profile and zsh_aliases
 [ -f ~/.zsh_profile ] && source ~/.zsh_profile
 [ -f ~/.zsh_aliases ] && source ~/.zsh_aliases
-
