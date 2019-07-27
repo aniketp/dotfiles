@@ -12,6 +12,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdtree'
 Plugin 'morhetz/gruvbox'			" Vim colorscheme
 Plugin 'fatih/vim-go'
 Plugin 'vim-airline/vim-airline'
@@ -60,14 +61,13 @@ colorscheme gruvbox
 set tabstop=4				" show existing tab with 4 spaces width
 " set softtabstop=4           " number of spacesin tab while editing
 set shiftwidth=4			" when indenting with '>', use 4 spaces width
-set expandtab				" Use hard tabs instead of soft tabs 
+set noexpandtab				" Use hard tabs instead of soft tabs 
 set number relativenumber		" Show numbers
 set background=dark			" Cool Background
 set cursorline
 set mouse=a				" Enable mouse for all modes
 set colorcolumn=80
 set guifont=*
-
 
 " Fix for backspacing issue /if any
 set backspace=indent,eol,start
@@ -77,6 +77,7 @@ inoremap <F4> <Esc>:w<Enter>:!xelatex resume.tex <Enter>
 "inoremap <Enter><Enter> <Esc>:wq<Enter>
 noremap <F4> :w<Enter>:!xelatex resume.tex <Enter>
 noremap <Enter><Enter> <Esc>:wq<Enter>
+noremap <C-n> :NERDTreeToggle<CR>
 
 " For editing files requiring root privileges
 cmap w!! w !sudo tee % >/dev/null
