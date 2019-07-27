@@ -52,6 +52,14 @@ autocmd BufReadPost *
 	\   exe "normal g`\"" |
 	\ endif
 
+if has("autocmd")
+	augroup templates
+		autocmd BufNewFile *.sh 0r ~/.vim/templates/skeleton.sh
+		autocmd BufNewFile *.c 0r ~/.vim/templates/skeleton.c
+		autocmd BufNewFile *.cpp 0r ~/.vim/templates/skeleton.cpp
+	augroup END
+endif
+
 " Set highlighter for 80 character limit
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 match OverLength /\%81v.\+/
@@ -68,6 +76,11 @@ set cursorline
 set mouse=a				" Enable mouse for all modes
 set colorcolumn=80
 set guifont=*
+
+" clang-formatting
+noremap <C-I> :pyfile /home/aniket/Desktop/clang/tools/clang-format/clang-format.py<cr>
+inoremap <C-I> <c-o>:pyfile /home/aniket/Desktop/clang/tools/clang-format/clang-format.py<cr>
+
 
 " Fix for backspacing issue /if any
 set backspace=indent,eol,start
