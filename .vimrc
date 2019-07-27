@@ -86,6 +86,12 @@ inoremap <C-I> <c-o>:pyfile /home/aniket/Desktop/clang/tools/clang-format/clang-
 set backspace=indent,eol,start
 
 let mapleader = ","
+" Mappings to manipulate files in buffer
+noremap <C-p> :vsplit \| :bnext<CR>
+noremap <C-x> :bdelete<CR>
+noremap <C-l> :bnext<CR>
+noremap <C-h> :bprevious<CR>
+
 inoremap <F4> <Esc>:w<Enter>:!xelatex resume.tex <Enter>
 "inoremap <Enter><Enter> <Esc>:wq<Enter>
 noremap <F4> :w<Enter>:!xelatex resume.tex <Enter>
