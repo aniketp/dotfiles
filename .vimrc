@@ -55,7 +55,7 @@ autocmd BufReadPost *
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 match OverLength /\%81v.\+/
 
-colorscheme harlequin
+colorscheme gruvbox
 
 set tabstop=4				" show existing tab with 4 spaces width
 " set softtabstop=4           " number of spacesin tab while editing
