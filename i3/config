@@ -89,6 +89,9 @@ bindsym $mod+Shift+k exec i3lock -t -i ~/.cache/i3lock/black.png
 # Send notification about Date-Time
 bindsym $mod+t exec /home/aniket/.config/i3/scripts/notify-time.sh 
 
+# Open Thunar on Home folder
+bindsym $mod+Ctrl+l exec thunar ~
+
 # shutdown
 bindsym $mod+Shift+x exec systemctl poweroff
 
