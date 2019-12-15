@@ -81,7 +81,7 @@ bindsym $mod+a focus parent
 #bindsym $mod+t focus child
 
 # lockscreen
-#bindsym $mod+Shift+l exec /home/aniket/.config/i3/scripts/lock.sh /home/aniket/.config/i3/images/lock.png
+## bindsym $mod+Shift+l exec /home/aniket/.config/i3/scripts/lock.sh /home/aniket/.config/i3/images/lock.png
 bindsym $mod+Shift+l exec betterlockscreen --lock
 bindsym $mod+Shift+k exec i3lock -t -i ~/.cache/i3lock/black.png
 # (This one for a darker background; in case the screenlight is not preferred)
@@ -249,7 +249,7 @@ bindsym XF86AudioPrev exec playerctl previous
 exec_always --no-startup-id feh --bg-scale /home/aniket/Pictures/Wallpapers/FreeBSD.jpg
 
 assign [class="Google-chrome" instance="nwm.iitk.ac.in"] $ws8
-#assign [class="Spotify"] $ws9
+assign [class="Spotify"] $ws9
 assign [class="VirtualBox Manager"] $ws10
 
 for_window [class="Peek"] floating enable
@@ -268,7 +268,7 @@ workspace $ws9 output eDP-1-1
 workspace $ws10 output eDP-1-1
 
 # i3 startup applications
-# exec virtualbox
+exec --no-startup-id ~/.conky/conky-startup.sh
 exec --no-startup-id compton -f
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
