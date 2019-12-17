@@ -74,3 +74,6 @@ alias ext='ext() { extract "$1" && rm $1 }; ext'
 alias set1='xrandr --output eDP-1-1 --brightness 1.0'
 alias nomon='xrandr --output HDMI-0 --same-as eDP-1-1'
 alias mon='xrandr --output HDMI-0 --left-of eDP-1-1'
+
+# Bluetooth CLI handling
+alias conn-head='sudo bluetoothctl <<<"connect $BOAT_ROCKERZ_MAC"'

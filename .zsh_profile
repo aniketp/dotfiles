@@ -77,3 +77,4 @@ export GOPATH=$HOME/go;
 export PATH=$PATH:$GOPATH/bin;
 export VISUAL=vim
 export EDITOR="$VISUAL"
+export BOAT_ROCKERZ_MAC=00:02:5B:02:6D:BC
