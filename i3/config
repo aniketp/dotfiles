@@ -268,12 +268,14 @@ workspace $ws9 output eDP-1-1
 workspace $ws10 output eDP-1-1
 
 # i3 startup applications
-exec --no-startup-id ~/.conky/conky-startup.sh
+exec --no-startup-id conky
 exec --no-startup-id compton -f
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
 exec --no-startup-id spotify
 exec --no-startup-id xrandr --output HDMI-0 --left-of eDP-1-1
+# Limit Dell's excessive starup brightness
+exec --no-startup-id xrandr --output eDP-1-1 --brightness 0.5
 
 # Google Chrome applications
 exec google-chrome-stable --new-window
