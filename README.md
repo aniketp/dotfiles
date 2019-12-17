@@ -15,23 +15,10 @@ Collection of all the configuration files made to ease and speed up the signific
 <!--On any normal day - <br>-->
 <!--![Shell-Demo](images/image.png)-->
 
+**NOTE:** Everything below this was outdated and has been removed (requirements are incomplete).
+
 ## Requirements
 * vim
 * zsh
 * [oh-my-zsh](http://ohmyz.sh/)
 * [Powerline fonts](https://github.com/powerline/fonts#powerline-fonts)
-
-## Installation
-The installation script is brief.
-``` shell
- cd dotfiles/scripts
- ./install
-```
-
-## Other Scripts
-The [install]() script moves the originally existing dotfiles to the respective `.backup`. In case nothing broke after installation, it is recommended to remove the corresponding backup files. To do that, just run `scripts/remove_backup`.
-
-`scripts/bsdsetup` is a quick setup for FreeBSD VMs. I have separate BSD machines for specific set of tasks, this script helps in quick environment setup.
-
-## Acknowledgement
-The original construct along with a part of powerlevel9k zsh-theme and install script was borrowed from [**Shivansh Rai**](https://github.com/shivansh)'s [dotfiles](https://github.com/shivansh/dotfiles).
