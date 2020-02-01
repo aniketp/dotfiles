@@ -248,7 +248,7 @@ bindsym XF86AudioPrev exec playerctl previous
 # Load Defined Wallpaper
 exec_always --no-startup-id feh --bg-scale /home/aniket/Pictures/Wallpapers/FreeBSD.jpg
 
-assign [class="Google-chrome" instance="nwm.iitk.ac.in"] $ws8
+assign [class="Conky" title="basic"] $ws8
 assign [class="Spotify"] $ws9
 assign [class="VirtualBox Manager"] $ws10
 
@@ -268,12 +268,12 @@ workspace $ws9 output eDP-1-1
 workspace $ws10 output eDP-1-1
 
 # i3 startup applications
-exec --no-startup-id conky
+exec_always --no-startup-id conky
 exec --no-startup-id compton -f
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
 exec --no-startup-id spotify
-exec --no-startup-id xrandr --output HDMI-0 --left-of eDP-1-1
+exec_always --no-startup-id xrandr --output HDMI-0 --left-of eDP-1-1
 # Limit Dell's excessive starup brightness
 exec --no-startup-id xrandr --output eDP-1-1 --brightness 0.5
 
