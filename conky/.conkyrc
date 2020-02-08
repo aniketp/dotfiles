@@ -177,18 +177,18 @@ ${voffset 4}     1  -  ${top_mem name 1}${alignr}${goto 173} ${goto 222}${top_me
      5  -  ${top_mem name 5}${alignr}${goto 170} ${goto 222}${top_mem cpu 5} ${goto 274}${top_mem mem 5}
 # FILESYSTEM DRIVES
 ${color5}${font Roboto:size=10}D R I V E S   ${hr 2}${font}${color}
-${offset 30}${color2}SSD-Root:${color} ${alignr}${offset -10}${fs_used /} / ${fs_size /}${alignr}${color0}${fs_bar}
+${offset 30}${color2}SSD-Root:${color} ${alignr}${offset -10}${fs_used /} / ${fs_size /}${alignr}${color0}${fs_bar /}
 ${offset 30}${color2}${voffset 8}I/O Read:${color} ${alignr}${offset -10}${diskio_read /dev/sda5}${voffset -8}${alignr}${color8}${diskiograph_read sda5 20,100 C4CEE2 355088 s}
 ${offset 30}${color2}I/O Write:${color} ${alignr}${offset -10}${diskio_write /dev/sda5}${alignr}${voffset -8}${color0}${diskiograph_write sda5 20,100 FFC300 1E671B s}
 
-${offset 30}${color2}Home:${color} ${alignr}${offset -10}${fs_used /home} / ${fs_size /home}${alignr}${color0}${fs_bar}
+${offset 30}${color2}Home:${color} ${alignr}${offset -10}${fs_used /home} / ${fs_size /home}${alignr}${color0}${fs_bar /home}
 ${offset 30}${color2}${voffset 8}I/O Read:${color} ${alignr}${offset -10}${diskio_read /dev/sdb4}${voffset -8}${alignr}${color8}${diskiograph_read sdb4 20,100 C4CEE2 355088 s}
 ${offset 30}${color2}I/O Write:${color} ${alignr}${offset -10}${diskio_write /dev/sdb4}${alignr}${voffset -8}${color0}${diskiograph_write sdb4 20,100 FFC300 1E671B s}
 # NETWORK INTERFACES
 ${color5}${color5}${font Roboto:size=10}N E T W O R K   ${hr 2}${font}${color}
-${color2}${offset 30}IP Address: ${color} ${alignr}${offset -10$}${addrs wlp3s0}
-${color2}${offset 30}Eth Down:${color} ${alignr}${offset -10$}${downspeed wlp3s0}${alignr}${color8}${downspeedgraph wlp3s0 13,100 C4CEE2 355088 s}
-${color2}${offset 30}Eth Up:${color} ${alignr}${offset -10$}${upspeed wlp3s0}${alignr}${color0}${upspeedgraph wlp3s0 13,100 FFC300 1E671B s}
+${color2}${offset 30}IP Address: ${color} ${alignr}${offset -10$}${addrs enp2s0}
+${color2}${offset 30}Eth Down:${color} ${alignr}${offset -10$}${downspeed enp2s0}${alignr}${color8}${downspeedgraph wlp3s0 13,100 C4CEE2 355088 s}
+${color2}${offset 30}Eth Up:${color} ${alignr}${offset -10$}${upspeed enp2s0}${alignr}${color0}${upspeedgraph wlp3s0 13,100 FFC300 1E671B s}
 # NVIDIA GPU SPECIFICATIONS
 ${color5}${font Roboto:size=10}N V I D I A   ${hr 2}${font}${color}
 ${font Roboto:size=10,weight:bold}${color8}${execp  nvidia-smi --query-supported-clocks=gpu_name --format=csv,noheader}${font}
