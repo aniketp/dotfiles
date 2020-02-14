@@ -92,6 +92,9 @@ bindsym $mod+t exec /home/aniket/.config/i3/scripts/notify-time.sh
 # Open Thunar on Home folder
 bindsym $mod+Ctrl+l exec thunar ~
 
+# Multiple conkyies get messed up
+bindsym $mod+Shift+c exec killall conky
+
 # shutdown
 bindsym $mod+Shift+x exec systemctl poweroff
 
@@ -156,7 +159,7 @@ bindsym $mod+Shift+KP_9 move container to workspace $ws9
 bindsym $mod+Shift+KP_0 move container to workspace $ws10
 
 # reload the configuration file
-bindsym $mod+Shift+c reload
+# bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # Quick screenshot
@@ -272,7 +275,7 @@ exec_always --no-startup-id conky
 exec --no-startup-id compton -f
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
-exec --no-startup-id spotify
+exec_always --no-startup-id spotify
 exec_always --no-startup-id xrandr --output HDMI-0 --left-of eDP-1-1
 # Limit Dell's excessive starup brightness
 exec --no-startup-id xrandr --output eDP-1-1 --brightness 0.5
