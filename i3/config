@@ -241,16 +241,13 @@ bindsym F1	exec amixer -D pulse sset Master unmute    # unmute sound
 bindsym XF86MonBrightnessUp exec /home/aniket/.config/i3/scripts/brightness.sh 1
 bindsym XF86MonBrightnessDown exec /home/aniket/.config/i3/scripts/brightness.sh 0
 
-
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play
 bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
-# Load Defined Wallpaper
-exec_always --no-startup-id feh --bg-scale /home/aniket/Pictures/Wallpapers/FreeBSD.jpg
-
+# Assign workspaces to certain applications
 assign [class="Conky" title="basic"] $ws8
 assign [class="Spotify"] $ws9
 assign [class="VirtualBox Manager"] $ws10
@@ -271,15 +268,21 @@ workspace $ws9 output eDP-1-1
 workspace $ws10 output eDP-1-1
 
 # i3 startup applications
-exec_always --no-startup-id conky
 exec --no-startup-id compton -f
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
-exec_always --no-startup-id spotify
-exec_always --no-startup-id xrandr --output HDMI-0 --left-of eDP-1-1
-# Limit Dell's excessive starup brightness
 exec --no-startup-id xrandr --output eDP-1-1 --brightness 0.5
+exec google-chrome-stable --new-window # Want the notification (startup-id)
 
-# Google Chrome applications
-exec google-chrome-stable --new-window
-#exec google-chrome-stable --new-window --app=https://nwm.iitk.ac.in/ 
+# Load defined wallpaper
+exec_always --no-startup-id feh --bg-scale /home/aniket/Pictures/Wallpapers/FreeBSD.jpg
+
+# Spotify and Conky have a specific issue at system startup which was fixed by
+# using exec_always instead of exec. That also means we need to kill the previous
+# instance of the applications before reloading i3 script.
+exec_always --no-startup-id killall conky; conky
+exec_always --no-startup-id killall spotify; spotify
+
+# Limit excessive brightness of laptop screen
+exec_always --no-startup-id xrandr --output HDMI-0 --left-of eDP-1-1
+
